@@ -1,15 +1,26 @@
 import './App.css';
 import Header from "./components/Header";
+import {useState} from "react";
 
 function App() {
-    const siteName = "Tic Tac Toe"
+    const [board, setBoard] = useState(Array(9).fill(null))
+    const siteName = "Tic Tac Toe Game"
 
-  return (
-    <div className="App">
-    <Header siteName={siteName}/>
+    console.log(board)
 
-    </div>
-  );
+    return (
+        <div className="App">
+            <Header siteName={siteName}/>
+
+            <div className='grid-container'>
+                {board.map(el =>
+                    <div key={el} className='grid-item'>
+                        {el}
+                    </div>)}
+            </div>
+
+        </div>
+    );
 }
 
 export default App;
