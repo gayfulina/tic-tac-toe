@@ -1,24 +1,29 @@
-.App {
-    text-align: -webkit-center;
-}
+/*.App {*/
+/*    text-align: -webkit-center;*/
+/*}*/
 
 
 .grid-container {
     display: grid;
     gap: 10px;
-    grid-template-columns: auto auto auto;
+    grid-template-columns: repeat(3, 1fr);
     background-color: aqua;
     padding: 20px;
     width: 40rem;
     height: 40rem;
-
+    margin: auto;
 }
 
 .grid-item {
     background-color: bisque;
-    border: 1px solid rgba(0, 0, 0, 0.8);
-    font-size: 30px;
+    border: 2px solid cornflowerblue;
     text-align: center;
     width: 12rem;
     height: 12rem;
+    font-size: 40px;
+    font-weight: bold;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
