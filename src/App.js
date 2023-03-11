@@ -12,7 +12,7 @@ function App() {
 
     useEffect(() => {
         setWinner(calculateWinner())
-    })
+    }, [board])
 
     // const onMoveHandle = (ind) => {
     //     setCount(count + 1)
@@ -25,10 +25,12 @@ function App() {
     //     }))
     // }
 
-    const onMoveHandle = (ind) => {
+    const onMoveHandle = (ind, el) => {
         const gamer = gamerX ? 'X' : '0';
-        setBoard(board.map((el, index) => ind === index ? gamer : el))
-        setGamerX(!gamerX)
+        if (el === null) {
+            setBoard(board.map((el, index) => ind === index ? gamer : el))
+            setGamerX(!gamerX)
+        }
     };
 
     const calculateWinner = () => {
@@ -43,12 +45,19 @@ function App() {
             [2, 5, 8]
         ];
 
-        for (let i = 0; i < winningCombination.length; i++) {
-            const [a, b, c] = winningCombination[i];
-            if (board[a] && board[a] === board[b] && board[b] === board[c]) {
-                return`${board[a]} won!`
-            }
-
+        // for (let i = 0; i < winningCombination.length; i++) {
+        //     const [a, b, c] = winningCombination[i];
+        //     console.log(board[a],board[b], board[c],  'abc')
+        //
+        //     if (board[a] && board[a] === board[b] && board[b] === board[c]) {
+        //         return `${board[a]} won!`
+        //     }
+        // }
+        for (let i of winningCombination) {
+            const [a, b, c] = i
+                if (board[a] && board[a] === board[b] && board[b] === board[c]) {
+                    return `${board[a]} won!`
+                }
         }
     };
 

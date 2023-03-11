@@ -3,7 +3,7 @@ function Square(props) {
     return (
         <button
             className='grid-item'
-            onClick={() => props.onMoveHandle(props.index)}
+            onClick={() => props.onMoveHandle(props.index, props.square)}
         >
             {props.square}
         </button>
